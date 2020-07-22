@@ -70,7 +70,7 @@ function Header() {
             color: white;
             font-family: Arial Narrow, sans-serif;
             font-weight:400;
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-right: 4rem;
           }
           .navbar-expand-lg {
