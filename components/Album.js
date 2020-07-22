@@ -35,43 +35,47 @@ function Album({ album }) {
   }, []);
 
   return (
-    <>
-      <div className=" mt-4">
-        <Row>
-          {filteredList.map((image, index) => (
-            <Col sm="3" key={image.image}>
-              <div
-                onClick={() => {
-                  openLightboxOnSlide(index + 1);
-                  window.history.pushState(
-                    {},
-                    document.title,
-                    `/work?image=${image.id}`
-                  );
-                }}
-                className="card mb-4 mt-3"
-              >
-                <CardImg width="100%" src={image.image} alt={"img"} />
-              </div>
-            </Col>
-          ))}
-        </Row>
-        <FsLightbox
-          toggler={lightboxController.toggler}
-          sources={filteredList.map(image => image.image)}
-          slide={lightboxController.slide}
-          onClose={() => {
-            window.history.pushState({}, document.title, `/work`);
-          }}
-        />
-      </div>
-      <style global jsx>{`
+      <>
+        <div className=" mt-4">
+          <Row>
+            {filteredList.map((image, index) => (
+                <Col sm="3" key={image.image}>
+                  <div
+                      onClick={() => {
+                        openLightboxOnSlide(index + 1);
+                        window.history.pushState(
+                            {},
+                            document.title,
+                            `/work?image=${image.id}`
+                        );
+                      }}
+                      className="card mb-4 mt-3"
+                  >
+                    <CardImg width="100%" src={image.image} alt={"img"} />
+                  </div>
+                </Col>
+            ))}
+          </Row>
+          <FsLightbox
+              toggler={lightboxController.toggler}
+              sources={filteredList.map(image => image.image)}
+              slide={lightboxController.slide}
+              onClose={() => {
+                window.history.pushState({}, document.title, `/work`);
+              }}
+          />
+        </div>
+        <style global jsx>{`
         .row {
           margin-right: 0;
           margin-left: 0;
         }
+        .card-img {
+        cursor: pointer;
+       }
       `}</style>
-    </>
+      </>
   );
 }
 export default Album;
+
